@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cuentas claras: entiende tus cobros y evita estafas</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+:root{--bg:#f3f6fa;--surface:#fff;--ink:#14213d;--muted:#46536b;--line:#c3cde0;--brand:#1d4ed8;--brand-ink:#fff;--ok:#0b6b3a;--ok-bg:#dff5e8;--warn:#8a4b00;--warn-bg:#fff0cf;--bad:#a4161a;--bad-bg:#fde2e1;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);font-size:20px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1626;--surface:#17233b;--ink:#f1f5fc;--muted:#b6c2d9;--line:#3a4a6a;--brand:#8db4ff;--brand-ink:#0e1626;--ok:#7fe0aa;--ok-bg:#0f3a25;--warn:#ffd27a;--warn-bg:#47330a;--bad:#ffb0ac;--bad-bg:#4d1618}}
+:root[data-theme="dark"]{--bg:#0e1626;--surface:#17233b;--ink:#f1f5fc;--muted:#b6c2d9;--line:#3a4a6a;--brand:#8db4ff;--brand-ink:#0e1626;--ok:#7fe0aa;--ok-bg:#0f3a25;--warn:#ffd27a;--warn-bg:#47330a;--bad:#ffb0ac;--bad-bg:#4d1618}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Atkinson Hyperlegible",Verdana,Tahoma,sans-serif;line-height:1.6}
+.wrap{max-width:46rem;margin:0 auto;padding:0 1rem}
+a,button,input,select,textarea,summary{font:inherit}
+:focus-visible{outline:4px solid var(--brand);outline-offset:3px}
+header.bar{background:var(--surface);border-bottom:2px solid var(--line)}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;align-items:center;justify-content:space-between;padding-top:.75rem;padding-bottom:.75rem}
+.brand{font-weight:700;font-size:1.15rem}
+.tools{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.tools span{color:var(--muted);font-size:.85rem}
+.btn{min-height:3rem;padding:.5rem 1.1rem;border:2px solid var(--brand);background:var(--surface);color:var(--ink);border-radius:.6rem;cursor:pointer;font-weight:700}
+.btn.primary{background:var(--brand);color:var(--brand-ink)}
+.btn[aria-pressed="true"]{background:var(--brand);color:var(--brand-ink)}
+h1{font-size:2.1rem;line-height:1.2;margin:2rem 0 .5rem}
+h2{font-size:1.55rem;line-height:1.25;margin:0 0 .5rem}
+p{margin:.5rem 0;max-width:38rem}
+.lead{font-size:1.15rem;color:var(--muted)}
+section{padding:1.75rem 0;border-top:2px solid var(--line)}
+.tool{background:var(--surface);border:3px solid var(--brand);border-radius:1rem;padding:1.25rem;margin-top:1.25rem}
+label,legend{display:block;font-weight:700;margin:1rem 0 .3rem}
+fieldset{border:0;padding:0;margin:0}
+input[type=text],input[type=number],select,textarea{width:100%;min-height:3.25rem;padding:.6rem .8rem;border:2px solid var(--muted);border-radius:.6rem;background:var(--bg);color:var(--ink)}
+.opt{display:flex;gap:.7rem;align-items:flex-start;padding:.6rem .8rem;border:2px solid var(--line);border-radius:.6rem;margin:.4rem 0;cursor:pointer;background:var(--bg)}
+.opt input{width:1.5rem;height:1.5rem;margin-top:.2rem;flex:none}
+.row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.1rem}
+#result{margin-top:1.25rem}
+.verdict{border:4px solid;border-radius:1rem;padding:1.1rem 1.25rem}
+.verdict h3{margin:0 0 .4rem;font-size:1.5rem}
+.verdict .ico{font-size:1.9rem;margin-right:.4rem;vertical-align:-.1em}
+.v-ok{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+.v-warn{background:var(--warn-bg);border-color:var(--warn);color:var(--warn)}
+.v-bad{background:var(--bad-bg);border-color:var(--bad);color:var(--bad)}
+.verdict p,.verdict li{color:var(--ink)}
+.verdict ul{padding-left:1.3rem;margin:.4rem 0}
+.found{margin-top:1rem;padding:.8rem 1rem;background:var(--bg);border-left:6px solid var(--brand);border-radius:.4rem}
+.signs{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.8rem}
+.signs li{background:var(--surface);border:2px solid var(--line);border-left:8px solid var(--bad);border-radius:.6rem;padding:.8rem 1rem}
+.signs b{display:block}
+.rule{background:var(--ok-bg);color:var(--ok);border:3px solid var(--ok);border-radius:1rem;padding:1rem 1.25rem;font-weight:700;font-size:1.15rem;margin-top:1rem}
+dl{margin:1rem 0 0}
+.term{background:var(--surface);border:2px solid var(--line);border-radius:.6rem;padding:.7rem 1rem;margin:.6rem 0}
+.term dt{font-weight:700;font-size:1.1rem}
+.term dd{margin:.2rem 0 0}
+.term em{color:var(--muted);font-style:normal;display:block;margin-top:.3rem}
+ol.steps{padding-left:1.4rem}
+ol.steps li{margin:.6rem 0;padding-left:.3rem}
+footer{padding:1.5rem 0 2.5rem;color:var(--muted);font-size:.9rem;border-top:2px solid var(--line)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header class="bar"><div class="wrap">
+<div class="brand">Cuentas claras</div>
+<div class="tools" role="group" aria-label="Ajustes de lectura">
+<span>Tamaño de letra:</span>
+<button class="btn" id="smaller" aria-label="Letra más pequeña">A−</button>
+<button class="btn" id="bigger" aria-label="Letra más grande">A+</button>
+<button class="btn" id="dark" aria-pressed="false">Fondo oscuro</button>
+</div></div></header>
+
+<main class="wrap">
+<h1>Entiende tus cobros antes de pagar</h1>
+<p class="lead">Escribe lo que ves en tu estado de cuenta, en un mensaje o lo que te dijeron por teléfono. Te explicamos qué significa y te avisamos si algo es sospechoso.</p>
+
+<div class="tool" id="checker">
+<h2>¿Reconoces este cobro?</h2>
+<label for="txt">¿Qué dice el cobro o el mensaje?</label>
+<textarea id="txt" rows="3" placeholder="Ejemplo: “Cargo por membresía” o “Su cuenta será bloqueada, envíe su clave”"></textarea>
+<label for="amt">¿Cuánto dinero es? (opcional)</label>
+<input type="number" id="amt" min="0" inputmode="decimal" placeholder="Ejemplo: 45">
+<fieldset>
+<legend>¿Cómo llegó a ti?</legend>
+<label class="opt"><input type="radio" name="how" value="stmt" checked> Lo vi en mi estado de cuenta o en mi cartilla</label>
+<label class="opt"><input type="radio" name="how" value="contact"> Alguien me llamó, escribió o visitó</label>
+</fieldset>
+<fieldset>
+<legend>Marca lo que sea cierto:</legend>
+<label class="opt"><input type="checkbox" id="c1"> Me piden que decida rápido o hoy mismo</label>
+<label class="opt"><input type="checkbox" id="c2"> Me piden mi clave, un código que llegó a mi celular o mi tarjeta</label>
+<label class="opt"><input type="checkbox" id="c3"> Me piden enviar dinero a otra cuenta o comprar tarjetas de regalo</label>
+</fieldset>
+<div class="row"><button class="btn primary" id="go">Revisar este cobro</button><button class="btn" id="clear">Borrar y empezar de nuevo</button></div>
+<div id="result" aria-live="polite"></div>
+</div>
+
+<section id="estafas">
+<h2>Señales de que puede ser una estafa</h2>
+<p>Si ves una sola de estas señales, detente y no pagues.</p>
+<ul class="signs">
+<li><b>Te apuran.</b>“Su cuenta se bloqueará hoy”. Los bancos de verdad te dan tiempo.</li>
+<li><b>Te piden tu clave o un código.</b>Nadie legítimo necesita tu clave, tu PIN ni el código que llega por mensaje.</li>
+<li><b>Te dicen que muevas tu dinero a una “cuenta segura”.</b>Eso es una estafa conocida. Tu dinero ya está seguro donde está.</li>
+<li><b>Prometen premios, herencias o ganancias fáciles.</b>Si no participaste, no ganaste.</li>
+<li><b>Aparece alguien “de tu familia” pidiendo dinero urgente.</b>Cuelga y llama tú mismo al número que ya conoces.</li>
+<li><b>Te piden pagar con tarjetas de regalo, criptomonedas o giros.</b>Es la forma que usan porque no se puede recuperar.</li>
+</ul>
+<p class="rule">Regla de oro: cuelga, y llama tú al número que está detrás de tu tarjeta. Nunca devuelvas la llamada al número que te dieron.</p>
+</section>
+
+<section id="glosario">
+<h2>Glosario en palabras simples</h2>
+<label for="q">Busca una palabra</label>
+<input type="text" id="q" placeholder="Ejemplo: interés, comisión, mora…" autocomplete="off">
+<dl id="gl"></dl>
+<p id="none" hidden>No encontramos esa palabra. Pregúntale al banco: “¿me lo puede explicar con un ejemplo?”.</p>
+</section>
+
+<section id="caiste">
+<h2>Si ya caíste en una estafa</h2>
+<p>Pasa a personas inteligentes todos los días. Actúa rápido y sin vergüenza.</p>
+<ol class="steps">
+<li>Llama a tu banco al número de tu tarjeta y pide bloquear tarjetas y cuentas.</li>
+<li>Cambia tus claves desde un teléfono de confianza.</li>
+<li>Guarda capturas, mensajes y números de teléfono como prueba.</li>
+<li>Haz la denuncia en la comisaría o en la autoridad de protección al consumidor de tu país.</li>
+<li>Cuéntaselo a un familiar o amigo de confianza. No lo enfrentes solo.</li>
+</ol>
+</section>
+</main>
+
+<footer><div class="wrap">Esta herramienta es una guía general y no reemplaza a tu banco. Nada de lo que escribas aquí se guarda ni se envía.</div></footer>
+
+<script>
+var G=[
+{t:"Comisión",d:"Dinero que te cobra el banco por un servicio, como mantener la cuenta o hacer una transferencia.",k:["comision","comisión","mantenimiento","portes"],n:"Pregunta cuánto es al mes y si se puede evitar."},
+{t:"Interés",d:"Dinero extra que pagas por deber plata, o que ganas por ahorrarla.",k:["interes","interés","intereses"],n:"Si es de un préstamo o tarjeta, es un costo para ti."},
+{t:"TEA y TCEA",d:"La tasa de un año. La TCEA incluye además comisiones y seguros, y por eso muestra el costo total real.",k:["tea","tcea","tasa"],n:"Compara siempre la TCEA, no solo la TEA."},
+{t:"Cuota",d:"Cada pago mensual de un préstamo o de una compra a plazos.",k:["cuota","cuotas"],n:"Revisa cuántas cuotas faltan."},
+{t:"Pago mínimo",d:"Lo menos que debes pagar de tu tarjeta para no atrasarte. Lo que no pagas sigue generando intereses.",k:["pago minimo","pago mínimo","minimo","mínimo"],n:"Pagar solo el mínimo hace que la deuda crezca."},
+{t:"Débito automático",d:"Un permiso para que una empresa te cobre sola cada mes de tu cuenta o tarjeta.",k:["debito automatico","débito automático","cargo automatico","cargo automático","recurrente","automatico","automático"],n:"Si no recuerdas haberlo autorizado, pide anularlo."},
+{t:"Suscripción o membresía",d:"Un servicio por el que pagas cada mes o cada año, como una app, una revista o un club.",k:["suscripcion","suscripción","membresia","membresía","renovacion","renovación","prueba gratis","prueba gratuita"],n:"Muchas empiezan como “prueba gratis” y luego cobran."},
+{t:"Seguro (desgravamen, de tarjeta)",d:"Un pago mensual por protección. Algunos seguros se agregan sin que lo notes.",k:["seguro","desgravamen","poliza","póliza"],n:"Tienes derecho a saber qué cubre y a rechazarlo."},
+{t:"Mora",d:"Estar atrasado en un pago. Trae intereses y recargos extra.",k:["mora","atraso","recargo","penalidad"],n:"Si no puedes pagar, avisa al banco antes de atrasarte."},
+{t:"Sobregiro",d:"Gastar más dinero del que tienes en la cuenta. El banco lo permite y te cobra por ello.",k:["sobregiro","sobregirado"],n:"Es muy caro. Evítalo."},
+{t:"Estado de cuenta",d:"La hoja o el aviso mensual que lista todo lo que entró y salió de tu cuenta o tarjeta.",k:["estado de cuenta","extracto","cartilla"],n:"Revísalo cada mes línea por línea."},
+{t:"Phishing",d:"Un mensaje o página falsa que imita a tu banco para robarte tus datos.",k:["phishing","enlace","link","verificar","verifique","actualice sus datos"],n:"No abras enlaces de mensajes. Entra tú a la página oficial."}
+];
+var $=function(i){return document.getElementById(i)};
+function norm(s){return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"")}
+function esc(s){return s.replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+
+function drawGl(){
+ var q=norm($("q").value.trim()),n=0,h="";
+ G.forEach(function(g){
+  if(!q||norm(g.t+" "+g.d+" "+g.k.join(" ")).indexOf(q)>-1){n++;
+   h+='<div class="term"><dt>'+g.t+'</dt><dd>'+g.d+'<em>'+g.n+'</em></dd></div>'}
+ });
+ $("gl").innerHTML=h;$("none").hidden=n>0;
+}
+$("q").addEventListener("input",drawGl);drawGl();
+
+var RED=["clave","codigo","pin","urgente","premio","ganaste","herencia","gift card","tarjeta de regalo","cuenta segura","bloqueada","bloqueo","bitcoin","cripto","whatsapp","verificar","verifique","sorteo","hoy mismo","ultima oportunidad","giro"];
+var WARN=["suscripcion","membresia","renovacion","cargo por","comision","mantenimiento","seguro","debito automatico","cargo automatico","recurrente","prueba gratis","penalidad","recargo","mora","interes","sobregiro","no reconozco"];
+var lastText="";
+function speak(t){
+ if(!window.speechSynthesis)return;
+ try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="es-ES";u.rate=.9;speechSynthesis.speak(u)}catch(e){}
+}
+function check(){
+ var raw=$("txt").value.trim(),t=norm(raw),how=document.querySelector("input[name=how]:checked").value;
+ var amt=parseFloat($("amt").value)||0,why=[],score=0;
+ if(!raw&&!$("c1").checked&&!$("c2").checked&&!$("c3").checked){
+  $("result").innerHTML='<div class="verdict v-warn"><h3>Falta información</h3><p>Escribe qué dice el cobro o marca alguna opción, y vuelve a pulsar “Revisar este cobro”.</p></div>';return}
+ if($("c2").checked){score+=10;why.push("Te piden tu clave, un código o tu tarjeta. Ninguna empresa seria lo hace.")}
+ if($("c3").checked){score+=10;why.push("Te piden enviar dinero o comprar tarjetas de regalo. Es la forma típica de estafa.")}
+ if($("c1").checked){score+=3;why.push("Te apuran para decidir. Las estafas dependen de que no tengas tiempo de pensar.")}
+ var red=RED.filter(function(w){return t.indexOf(w)>-1});
+ if(red.length){score+=4;why.push("El texto contiene palabras de alerta: "+red.slice(0,4).join(", ")+".")}
+ if(how==="contact"){score+=3;why.push("Alguien te contactó a ti. Tú no lo pediste, y eso es una señal de cuidado.")}
+ var warn=WARN.filter(function(w){return t.indexOf(w)>-1});
+ if(warn.length&&how==="stmt"){score+=2;why.push("Es un tipo de cobro que a veces se agrega sin que lo notes.")}
+ if(amt>=500&&how==="contact"){score+=2;why.push("Es una cantidad grande para pedirla por mensaje o llamada.")}
+ var cls,ico,title,act;
+ if(score>=7){cls="v-bad";ico="⛔";title="Alto riesgo: no pagues ni des datos";
+  act=["Corta la llamada o no respondas el mensaje.","No des claves, códigos ni envíes dinero.","Llama tú al número que está detrás de tu tarjeta.","Cuéntaselo a alguien de tu confianza."]}
+ else if(score>=2){cls="v-warn";ico="⚠️";title="Revísalo antes de pagar";
+  act=["Compara con tu estado de cuenta del mes pasado.","Llama al banco o a la empresa usando el número oficial.","Pregunta: “¿Cuándo lo autoricé? ¿Cómo lo anulo?”","Si no lo reconoces, pide que lo reclamen como cobro no autorizado."]}
+ else{cls="v-ok";ico="✅";title="No vemos señales de alarma";
+  why.push("Eso no significa que esté garantizado. Solo que no vemos señales de estafa en lo que escribiste.");
+  act=["Confirma que lo reconoces: ¿lo compraste o contrataste tú?","Guarda tu comprobante por si hay dudas después."]}
+ var found=G.filter(function(g){return g.k.some(function(k){return t.indexOf(norm(k))>-1})}).slice(0,3);
+ var h='<div class="verdict '+cls+'"><h3><span class="ico" aria-hidden="true">'+ico+'</span>'+title+'</h3>';
+ if(why.length)h+='<p><b>Por qué:</b></p><ul>'+why.map(function(w){return"<li>"+esc(w)+"</li>"}).join("")+"</ul>";
+ h+='<p><b>Qué hacer ahora:</b></p><ul>'+act.map(function(a){return"<li>"+a+"</li>"}).join("")+"</ul></div>";
+ if(found.length){h+=found.map(function(g){return'<div class="found"><b>'+g.t+':</b> '+g.d+'</div>'}).join("")}
+ h+='<div class="row"><button class="btn" id="say">🔊 Leer en voz alta</button></div>';
+ $("result").innerHTML=h;
+ lastText=title+". "+why.join(" ")+" Qué hacer: "+act.join(" ");
+ $("say").onclick=function(){speak(lastText)};
+ $("result").scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+$("go").addEventListener("click",check);
+$("clear").addEventListener("click",function(){
+ $("txt").value="";$("amt").value="";$("c1").checked=$("c2").checked=$("c3").checked=false;
+ document.querySelector("input[name=how][value=stmt]").checked=true;$("result").innerHTML="";
+ if(window.speechSynthesis)try{speechSynthesis.cancel()}catch(e){}
+ $("txt").focus();
+});
+
+var size=20,root=document.documentElement;
+function setSize(n){size=Math.max(16,Math.min(32,n));root.style.fontSize=size+"px"}
+$("bigger").onclick=function(){setSize(size+2)};
+$("smaller").onclick=function(){setSize(size-2)};
+$("dark").onclick=function(){
+ var on=this.getAttribute("aria-pressed")!=="true";
+ this.setAttribute("aria-pressed",on);
+ root.setAttribute("data-theme",on?"dark":"light");
+};
+</script>
+</body>
+</html>
